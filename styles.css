@@ -1,0 +1,573 @@
+/* =============================================================================
+   VARIABLES GLOBALES & RESET
+   Palette ivoire & or précieux, luxe et lisibilité
+   ============================================================================= */
+:root {
+  /* Couleurs */
+  --bg: #f9f5ef;         /* Crème léger */
+  --bg-alt: #ffffff;     /* Blanc pur */
+  --text: #3e3e3e;       /* Gris sombre */
+  --accent: #bfa376;     /* Or doux / sable précieux */
+  --accent2: #e4c17b;    /* Or clair pour surlignage */
+  --highlight: #ac803d;  /* Bronze intense */
+
+  /* Typographies */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+
+  /* Espacements */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+
+  /* Rayons & ombres */
+  --radius: 8px;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-lg: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Reset et boîte-sizing */
+*,
+*::before,
+*::after {
+  margin:0; padding:0;
+  box-sizing:border-box;
+}
+
+/* Corps & base */
+html { scroll-behavior: smooth; font-size:100%; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Images fluides */
+img { max-width:100%; height:auto; display:block; }
+
+/* =============================================================================
+   CONTENEUR CENTRAL
+   ============================================================================= */
+.container {
+  width:90%; max-width:1200px;
+  margin:0 auto; padding:var(--space-lg) 0;
+}
+
+/* =============================================================================
+   HEADER & NAVIGATION
+   ============================================================================= */
+.header {
+  position: fixed; top:0; left:0; right:0;
+  background: var(--bg-alt);
+  border-bottom:1px solid #e4e4e4;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+}
+
+.header--hidden { transform: translateY(-100%); box-shadow: none; }
+.header--visible { transform: translateY(0); box-shadow: var(--shadow-sm); }
+
+.header__inner {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:var(--space-sm) 0;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size:1.8rem;
+  color: var(--accent);
+  text-decoration:none;
+}
+
+/* Navigation principale */
+.nav__list {
+  display:flex; gap:var(--space-lg);
+  list-style:none;
+}
+
+.nav__link {
+  color: var(--text);
+  text-decoration:none;
+  padding:var(--space-xs) var(--space-sm);
+  transition: color 0.3s ease;
+}
+.nav__link:hover,
+.nav__link:focus { color: var(--accent2); }
+
+/* Hamburger (mobile) */
+.hamburger {
+  display:none;
+  background:none;
+  border:none;
+  font-size:1.6rem;
+  color:var(--text);
+  cursor:pointer;
+}
+
+/* Nav ouverte (mobile) */
+.nav.open .nav__list {
+  display:flex;
+}
+
+/* =============================================================================
+   BACK-TO-TOP BUTTON
+   ============================================================================= */
+#backToTop {
+  position:fixed;
+  bottom:2rem; right:2rem;
+  width:3rem; height:3rem;
+  background: var(--accent);
+  color: var(--bg-alt);
+  border:none; border-radius:50%;
+  display:none;
+  align-items:center; justify-content:center;
+  font-size:1.5rem;
+  cursor:pointer;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.3s ease, transform 0.3s ease;
+  z-index:1000;
+}
+#backToTop.visible {
+  display:flex;
+}
+#backToTop:hover {
+  background: var(--accent2);
+  transform: scale(1.1);
+}
+
+/* =============================================================================
+   HERO SECTION
+   ============================================================================= */
+.hero {
+  filter: none;
+  position:relative; height:100vh;
+  background: url('images/profil\ 1.jpg') center/cover no-repeat;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+}
+.hero__overlay {
+  position:absolute; inset:0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: none;
+}
+
+.hero__content {
+  position:relative; z-index:1;
+  padding:var(--space-sm);
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem,6vw,3.5rem);
+  color: var(--accent);
+  margin-bottom: var(--space-sm);
+  opacity:0; animation: fadeInUp 1s ease-out forwards;
+}
+.hero__subtitle {
+  font-size: clamp(1rem,4vw,1.5rem);
+  margin-bottom: var(--space-md);
+  opacity:0; animation: fadeInUp 1.2s ease-out forwards;
+}
+/* ==========================================================================
+   HERO TEXT – STYLE ROYAL & LISIBLE
+   ========================================================================== */
+.hero__content {
+  text-align: center;
+  padding: 0 var(--space-sm);
+}
+
+/* TITRE : majuscules, graisse, espacement, ombre légère */
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;               /* bien en gras */
+  color: var(--accent);           /* doré doux */
+  letter-spacing: 0.05em;         /* espacement royal */
+  text-transform: uppercase;      /* style noblesse */
+  margin-bottom: var(--space-xs);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* PETITE LIGNE SOUS LE TITRE */
+.hero__title::after {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 2px;
+  background: var(--accent2);
+  margin: var(--space-xs) auto 0;
+}
+
+/* SOUS-TITRE : gras modéré, italique léger */
+.hero__subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: 600;               /* un peu de graisse */
+  color: var(--text);
+  font-style: italic;             /* touche sophistiquée */
+  opacity: 0.9;                   /* contraste doux */
+}
+
+/* CTA : marge au-dessus pour aérer */
+.hero__cta {
+  margin-top: var(--space-lg);
+}
+
+.hero__cta {
+  padding:var(--space-sm) var(--space-lg);
+  background: var(--accent);
+  color: var(--bg-alt);
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+}
+.hero__cta:hover {
+  background: var(--accent2);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+  animation: glow 1s alternate infinite;
+}
+
+/* =============================================================================
+   PRODUITS PHARES – MISE À JOUR AVEC BOUTON WHATSAPP
+   Intégration du style “Commander sur WhatsApp” sans conflit
+   ============================================================================= */
+
+/* Grille responsive des cartes */
+.featured__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+/* Carte produit */
+.card {
+  background: var(--bg-alt);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Image produit : zoom léger au survol */
+.card__img {
+  width: 100%;
+  filter: brightness(0.95);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.card__img:hover {
+  transform: scale(1.02);
+  filter: brightness(1);
+}
+
+/* Corps de la carte */
+.card__body {
+  padding: var(--space-md);
+}
+
+/* Titre & prix */
+.card__title {
+  font-size: 1.3rem;
+  color: var(--accent);
+  margin-bottom: var(--space-xs);
+}
+.card__price {
+  color: var(--highlight);
+  font-weight: bold;
+  margin-bottom: var(--space-sm);
+}
+
+/* Bouton générique (fallback) */
+.card__btn {
+  display: inline-block;
+  width: 100%;
+  padding: var(--space-sm);
+  background: var(--accent);
+  color: var(--bg-alt);
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.card__btn:hover {
+  background: var(--accent2);
+}
+
+/* -----------------------------------------------------------------------------
+   STYLE SPÉCIFIQUE POUR “Commander sur WhatsApp”
+   Cette règle CIBLE UNIQUEMENT les boutons WhatsApp (plus spécifique).
+   ---------------------------------------------------------------------------- */
+.btn--whatsapp.card__btn {
+  /* on reprend width et padding de .card__btn, on ajoute gradient et animation */
+  background: linear-gradient(135deg, var(--accent2) 0%, var(--highlight) 100%);
+  background-size: 200% 200%;
+  background-position: left center;
+  color: var(--bg-alt);
+  text-decoration: none;
+  /* garde le padding de .card__btn */
+  /* on peut ajuster ici si besoin */
+  transition:
+    background-position 0.5s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Effet au survol : dégradé animé, léger lift */
+.btn--whatsapp.card__btn:hover,
+.btn--whatsapp.card__btn:focus {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+
+/* =============================================================================
+   TÉMOIGNAGES
+   ============================================================================= */
+.testimonials__grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap:var(--space-lg); margin:var(--space-lg) 0;
+}
+.testimonial {
+  background: var(--bg-alt);
+  padding:var(--space-md);
+  border-radius:var(--radius);
+  box-shadow: var(--shadow-sm);
+  text-align:center;
+  transition: transform .3s, box-shadow .3s;
+}
+.testimonial:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.testimonial__avatar {
+  width:80px; height:80px;
+  border-radius:50%; margin:0 auto var(--space-sm);
+  border:2px solid var(--accent2);
+}
+.testimonial__text {
+  font-style:italic; font-size:1.1rem;
+  line-height:1.6; color:var(--text);
+  margin-bottom:var(--space-sm);
+}
+.testimonial__author {
+  font-family:var(--font-heading);
+  color:var(--accent);
+  font-size:0.95rem;
+}
+
+/* =============================================================================
+   NEWSLETTER
+   ============================================================================= */
+.newsletter__form {
+  background: var(--bg-alt);
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-sm);
+  transition: box-shadow 0.3s;
+}
+.newsletter__form:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.newsletter__input {
+  padding: var(--space-sm) var(--space-md);
+  border: 2px solid var(--accent2);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text);
+  transition: border 0.3s, box-shadow 0.3s;
+}
+.newsletter__input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(191,163,118,0.4);
+}
+
+.newsletter__btn {
+  padding: var(--space-sm) var(--space-lg);
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: var(--bg-alt);
+  border: none;
+  border-radius: var(--radius);
+  transform: scale(1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.newsletter__btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(191,163,118,0.5);
+}
+
+/* =============================================================================
+   WHATSAPP LINKS – bureau & mobile
+   ============================================================================= */
+.newsletter__whatsapp {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  margin-top: var(--space-md);
+}
+
+/* Styles communs aux boutons WhatsApp */
+.newsletter__whatsapp .btn--secondary {
+  flex: 1;
+  text-align: center;
+  padding: var(--space-sm) var(--space-md);
+  font-weight: 600;
+  border-radius: var(--radius);
+  background-size: 200% 200%;
+  background-position: left center;
+  transition: background-position 0.5s ease,
+              transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* “Ajouter mon numéro WhatsApp” */
+.newsletter__whatsapp .btn--secondary:nth-child(1) {
+  background: linear-gradient(135deg, var(--accent2) 0%, var(--highlight) 100%);
+  color: var(--bg-alt);
+}
+.newsletter__whatsapp .btn--secondary:nth-child(1):hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* “Envoyer un message WhatsApp” */
+.newsletter__whatsapp .btn--secondary:nth-child(2) {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  color: var(--bg-alt);
+}
+.newsletter__whatsapp .btn--secondary:nth-child(2):hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Empilement vertical sur mobile */
+@media (max-width: 576px) {
+  .newsletter__whatsapp {
+    flex-direction: column;
+  }
+}
+
+
+/* =============================================================================
+   FOOTER
+   ============================================================================= */
+.footer {
+  background: var(--bg-alt);
+  padding: var(--space-sm) 0;
+}
+.footer__inner {
+  display:flex; flex-wrap:wrap;
+  justify-content:center; gap:var(--space-xs);
+}
+.footer__links {
+  display:flex; list-style:none; gap:var(--space-sm);
+}
+.footer__link {
+  font-size:0.875rem; color:var(--text);
+  padding:0 var(--space-xs);
+  transition:color .3s;
+}
+.footer__link:hover { color: var(--accent2); }
+.footer__copy {
+  font-size:0.75rem; margin:0;
+  color:var(--text);
+  text-align:center;
+}
+
+/* =============================================================================
+   ANIMATIONS & UTILITAIRES
+   ============================================================================= */
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(40px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes glow {
+  from { box-shadow:0 0 8px var(--accent2); }
+  to   { box-shadow:0 0 20px var(--accent2); }
+}
+
+/* =============================================================================
+   RESPONSIVE & HAMBURGER BEHAVIOR
+   ============================================================================= */
+@media (max-width: 768px) {
+  /* Affiche le hamburger et positionne-le */
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 50%; 
+    right: var(--space-sm);
+    transform: translateY(-50%);
+    z-index: 1100;
+  }
+
+  /* Cache la nav tant que .open n’est pas ajouté */
+  .nav__list {
+    display: none;
+  }
+
+  /* Quand la nav a la classe open, affiche la liste sous le header */
+  .nav.open .nav__list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg-alt);
+    padding: var(--space-sm) 0;
+  }
+
+  /* Pour que logo et socials ne rentrent pas en conflit */
+  .header__inner {
+    position: relative;
+    justify-content: flex-start; /* logo à gauche */
+    padding: var(--space-sm) var(--space-lg);
+  }
+}
+
+@media (max-width: 576px) {
+  /* 1. Passe la grille en une colonne */
+  .newsletter__form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--space-sm);
+  }
+
+  /* 2. Champ email pleine largeur */
+  .newsletter__input {
+    width: 100%;
+  }
+
+  /* 3. Bouton en seconde ligne, pleine largeur */
+  .newsletter__btn {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    margin: 0; /* supprime marges éventuelles */
+  }
+}
+
+
+/* =============================================================================
+   BACK-TO-TOP SHOW/HIDE ON SCROLL
+   ============================================================================= */
+@media (max-width: 576px) {
+  /* rien d’autre */
+}

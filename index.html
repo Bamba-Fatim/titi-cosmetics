@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Métadonnées essentielles -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TITI Cosmetics – Accueil</title>
+  <meta name="description" content="TITI Cosmetics : Savons visage & corps 100% naturels. Découvre nos best-sellers et rejoins l’aventure naturelle.">
+  <!-- Open Graph pour partage social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TITI Cosmetics – Savons naturels & authentiques">
+  <meta property="og:description" content="Jeune étudiante passionnée, je crée des soins visage et corps 100% naturels.">
+  <meta property="og:image" content="https://tonsite.com/img/hero-titi.jpg">
+  <meta property="og:url" content="https://tonsite.com/">
+
+  <!-- JSON-LD Schema.org pour 4 produits -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "Product",
+        "position": 1,
+        "name": "Savon Visage Hydratant",
+        "image": "https://tonsite.com/img/soap1.jpg",
+        "offers": { "@type": "Offer", "price": "8.00", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "Product",
+        "position": 2,
+        "name": "Savon Exfoliant Doux",
+        "image": "https://tonsite.com/img/soap2.jpg",
+        "offers": { "@type": "Offer", "price": "9.50", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "Product",
+        "position": 3,
+        "name": "Savon Corps Nourrissant",
+        "image": "https://tonsite.com/img/soap3.jpg",
+        "offers": { "@type": "Offer", "price": "7.00", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "Product",
+        "position": 4,
+        "name": "Savon Visage Purifiant",
+        "image": "https://tonsite.com/img/soap4.jpg",
+        "offers": { "@type": "Offer", "price": "8.50", "priceCurrency": "EUR" }
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Google Fonts : serif pour les titres, sans-serif pour le corps de texte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Feuille de styles principale -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Script JS global (interactions, lazy-load, etc.) -->
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+
+  <!--
+    ================================
+    HEADER FIXE
+    Logo, navigation et icônes sociales
+    ================================
+  -->
+  <header class="header">
+    <div class="container header__inner">
+      <!-- Logo : lien vers l’accueil -->
+      <a href="index.html" class="logo">TITI Cosmetics</a>
+
+      <!-- Bouton hamburger mobile -->
+      <button class="hamburger" aria-label="Ouvrir le menu">☰</button>
+
+      <!-- Navigation principale -->
+      <nav class="nav" role="navigation">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Accueil</a></li>
+          <li><a href="about.html" class="nav__link">À propos</a></li>
+          <li><a href="products.html" class="nav__link">Produits</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Icônes sociales : TikTok & WhatsApp -->
+      <div class="socials">
+        <a href="#" aria-label="TikTok" class="socials__link socials__link--tiktok"></a>
+        <a href="#" aria-label="WhatsApp" class="socials__link socials__link--whatsapp"></a>
+      </div>
+    </div>
+  </header>
+
+  <!--
+    ================================
+    HERO SECTION
+    Fond photo de toi, overlay sombre, titre & CTA
+    ================================
+  -->
+  <section id="hero" class="hero" role="banner">
+    <!-- Overlay sombre pour améliorer le contraste du texte -->
+    <div class="hero__overlay"></div>
+
+    <div class="container hero__content">
+      <!-- Titre principal -->
+      <h1 class="hero__title animate-fade-in">Savons Naturels & Authentiques</h1>
+      <!-- Phrase d’accroche -->
+      <p class="hero__subtitle animate-fade-in">
+        Jeune étudiante passionnée, je crée des soins visage et corps 100% naturels.
+      </p>
+      <!-- Bouton d’appel à l’action -->
+      <a href="#featured" class="btn btn--primary hero__cta">
+        Découvrir la gamme
+      </a>
+    </div>
+  </section>
+
+  <!--
+    ================================
+    PRODUITS PHARES
+    Grille responsive 3 colonnes, cartes minimalistes
+    ================================
+  -->
+  <section id="featured" class="featured container">
+    <!-- Titre de section -->
+    <h2 class="section-title">Nos best-sellers</h2>
+
+    <!-- Grille de cartes produits -->
+    <div class="grid grid--3cols featured__grid">
+
+     <!-- Carte produit 1 -->
+<article class="card">
+  <img src="img/soap1.jpg"
+       alt="Savon Visage Hydratant"
+       class="card__img">
+  <div class="card__body">
+    <h3 class="card__title">Savon Visage Hydratant</h3>
+    <p class="card__price">8,00 €</p>
+    <a
+      href="https://wa.me/2250797000865?text=Bonjour%20TITI%20Cosmetics%20!%0AJe%20souhaite%20commander%20le%20Savon%20Visage%20Hydratant%20:%20https://tonsite.com/img/soap1.jpg"
+      target="_blank"
+      rel="noopener"
+      class="btn btn--whatsapp card__btn"
+    >
+      Commander sur WhatsApp
+    </a>
+  </div>
+</article>
+
+<!-- Carte produit 2 -->
+<article class="card">
+  <img src="images/produit 1.jpg"
+       alt="Savon Exfoliant Doux"
+       class="card__img">
+  <div class="card__body">
+    <h3 class="card__title">Savon Exfoliant Doux</h3>
+    <p class="card__price">9,50 €</p>
+    <a
+      href="https://wa.me/2250797000865?text=Bonjour%20TITI%20Cosmetics%20!%0AJe%20souhaite%20commander%20le%20Savon%20Exfoliant%20Doux%20:%20https://tonsite.com/img/soap2.jpg"
+      target="_blank"
+      rel="noopener"
+      class="btn btn--whatsapp card__btn"
+    >
+      Commander sur WhatsApp
+    </a>
+  </div>
+</article>
+
+<!-- Carte produit 3 -->
+<article class="card">
+  <img src="img/soap3.jpg"
+       alt="Savon Corps Nourrissant"
+       class="card__img">
+  <div class="card__body">
+    <h3 class="card__title">Savon Corps Nourrissant</h3>
+    <p class="card__price">7,00 €</p>
+    <a
+      href="https://wa.me/2250797000865?text=Bonjour%20TITI%20Cosmetics%20!%0AJe%20souhaite%20commander%20le%20Savon%20Corps%20Nourrissant%20:%20https://tonsite.com/img/soap3.jpg"
+      target="_blank"
+      rel="noopener"
+      class="btn btn--whatsapp card__btn"
+    >
+      Commander sur WhatsApp
+    </a>
+  </div>
+</article>
+
+<!-- Carte produit 4 -->
+<article class="card">
+  <img src="img/soap4.jpg"
+       alt="Savon Visage Purifiant"
+       class="card__img">
+  <div class="card__body">
+    <h3 class="card__title">Savon Visage Purifiant</h3>
+    <p class="card__price">8,50 €</p>
+    <a
+      href="https://wa.me/2250797000865?text=Bonjour%20TITI%20Cosmetics%20!%0AJe%20souhaite%20commander%20le%20Savon%20Visage%20Purifiant%20:%20https://tonsite.com/img/soap4.jpg"
+      target="_blank"
+      rel="noopener"
+      class="btn btn--whatsapp card__btn"
+    >
+      Commander sur WhatsApp
+    </a>
+  </div>
+</article>
+
+    </div>
+
+    <!-- Lien vers la page complète des produits -->
+    <div class="featured__more">
+      <a href="products.html" class="btn btn--link">Voir tous les savons →</a>
+    </div>
+  </section>
+
+  <!--
+    ================================
+    TÉMOIGNAGES
+    Avis d’amis et abonnés, grille responsive
+    ================================
+  -->
+ <section class="testimonials container">
+  <!-- Titre de la section -->
+  <h2 class="section-title">Ils adorent TITI Cosmetics</h2>
+
+  <!-- Grille de témoignages -->
+  <div class="testimonials__grid">
+    
+    <!-- Témoignage 1 -->
+    <div class="testimonial">
+      <img src="img/user_amina.jpg"
+           alt="Portrait d’Amina"
+           loading="lazy"
+           class="testimonial__avatar">
+      <blockquote class="testimonial__text">
+        “Le savon hydratant a sauvé ma peau sèche. Je recommande à 100% !”
+      </blockquote>
+      <p class="testimonial__author">— Amina, Abidjan</p>
+    </div>
+
+    <!-- Témoignage 2 -->
+    <div class="testimonial">
+      <img src="img/user_lucas.jpg"
+           alt="Portrait de Lucas"
+           loading="lazy"
+           class="testimonial__avatar">
+      <blockquote class="testimonial__text">
+        “Savon purifiant top pour ma peau acnéique. Merci TITI !”
+      </blockquote>
+      <p class="testimonial__author">— Lucas, Paris</p>
+    </div>
+
+    <!-- Témoignage 3 -->
+    <div class="testimonial">
+      <img src="img/user_nora.jpg"
+           alt="Portrait de Nora"
+           loading="lazy"
+           class="testimonial__avatar">
+      <blockquote class="testimonial__text">
+        “Fan du savon corps nourrissant, parfum naturel au top.”
+      </blockquote>
+      <p class="testimonial__author">— Nora, Dakar</p>
+    </div>
+
+  </div>
+</section>
+  <!--
+    ================================
+    NEWSLETTER & WHATSAPP
+    Formulaire + options pour ajouter le contact
+    ================================
+  -->
+  <section class="newsletter container">
+    <!-- Titre et description -->
+    <h2 class="section-title">Rejoignez l’aventure naturelle</h2>
+    <p class="newsletter__desc">
+      Abonnez-vous pour recevoir les nouveautés et promotions exclusives.
+    </p>
+
+    <!-- Formulaire d’inscription à la newsletter -->
+    <form id="newsletter-form" class="newsletter__form">
+      <input
+        type="email"
+        name="email"
+        placeholder="Votre adresse email"
+        required
+        class="newsletter__input"
+      >
+      <button type="submit" class="btn btn--primary newsletter__btn">
+        S’inscrire
+      </button>
+    </form>
+
+    <!-- Option WhatsApp : téléchargement vCard + click-to-chat -->
+    <div class="newsletter__whatsapp">
+      <p class="newsletter__whatsapp-desc">
+        Ou ajoutez mon contact WhatsApp :
+      </p>
+      <!-- Téléchargement vCard pour ajouter le contact -->
+      <a
+        href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3ATITI%20Cosmetics%0ATEL%3BCELL%3A%2B225123456789%0AEND%3AVCARD"
+        download="TITI_Cosmetics.vcf"
+        class="btn btn--secondary"
+      >
+        Ajouter mon numéro WhatsApp
+      </a>
+      <!-- Ouverture d’une conversation WhatsApp -->
+      <a
+        href="https://wa.me/2250797000865?text=Bonjour%20TITI%20Cosmetics%20!%20Je%20souhaite%20suivre%20vos%20statuts."
+        target="_blank"
+        rel="noopener"
+        class="btn btn--secondary"
+      >
+        Envoyer un message WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!--
+    ================================
+    FOOTER
+    Liens utiles, mentions légales et réseaux sociaux
+    ================================
+  -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <!-- Liens secondaires -->
+      <ul class="footer__links">
+        <li><a href="about.html" class="footer__link">À propos</a></li>
+        <li><a href="products.html" class="footer__link">Nos savons</a></li>
+        <li><a href="contact.html" class="footer__link">Contact</a></li>
+      </ul>
+      <!-- Copyright -->
+      <p class="footer__copy">&copy; 2025 TITI Cosmetics. Tous droits réservés.</p>
+      <!-- Icônes sociales en footer -->
+      <div class="socials socials--footer">
+        <a href="#" aria-label="TikTok" class="socials__link socials__link--tiktok"></a>
+        <a href="#" aria-label="WhatsApp" class="socials__link socials__link--whatsapp"></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
